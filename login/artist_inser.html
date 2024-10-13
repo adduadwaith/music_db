@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert Artist</title>
+    <link rel="stylesheet" href="form_style.css"> <!-- Optional: Add your form CSS here -->
+</head>
+<body>
+    <div class="container">
+        <h1>Insert New Artist</h1>
+        <form action="insert_artist.php" method="POST" enctype="multipart/form-data">
+            <label for="artist_name">Artist Name:</label>
+            <input type="text" name="artist_name" id="artist_name" required placeholder="Enter artist name">
+
+            <label for="genre">Genre:</label>
+            <input type="text" name="genre" id="genre" required placeholder="Enter artist genre">
+
+            <label for="artist_image">Artist Image:</label>
+            <input type="file" name="artist_image" id="artist_image" required accept="image/*">
+
+            <button type="submit">Insert Artist</button>
+        </form>
+    </div>
+</body>
+</html>

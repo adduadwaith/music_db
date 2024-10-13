@@ -15,7 +15,7 @@ body {
 }
 
 header {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.338);
     color: purple;
     position: sticky;
     top: 0;
@@ -28,6 +28,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
+    height: 60px;
 }
 
 .logo {
@@ -131,7 +132,7 @@ nav.main-nav
 
 .popular-artists {
     text-align: center;
-    margin: 20px 0;
+    margin-top: 50px;
 }
 
 .artist-scroll {
@@ -167,6 +168,17 @@ color: aliceblue;
 .track-section {
     margin: 20px 0;
     text-align: center;
+    margin-top: 32px;
+}
+
+.track-section .track
+{
+    color: white;
+    size: 20px;
+}
+
+.track-section,.popular-artists h2{
+    color: aliceblue;
 }
 
 .tracks {
@@ -176,25 +188,51 @@ color: aliceblue;
 }
 
 .track {
-/*   width: 100px; 
-    height: 100px; */
-
-
-    background-color: purple;
+    background-image:linear-gradient(rgba(216, 100, 200, 0.043),#f58ea107) ;
     color: white;
-   
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 10px; /*26px*/
     transition: background-color 0.3s;
+    position: relative;
 }
 
-.track:hover {
+/*.track:hover {
     background-color: darkviolet;
+}*/
+
+@property --angle{
+
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+.track::after,.track::before{
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-image: conic-gradient(from var(--angle),transparent 70%,#3d47de);
+    z-index: -1;
+    padding: 10px;
+    border-radius: 8px;
+    animation: 3s spin linear infinite;
+
+
 }
 
+ .track::before{
+    filter: blur(1.5rem);
+    opacity: 0.5;
+}
 
-.track-section,.popular-artists h2{
-    color: aliceblue;
+@keyframes spin{
+    from{
+        --angle:0deg;
+    }
+    to{
+        --angle:360deg;
+    }
+
 }
 
 

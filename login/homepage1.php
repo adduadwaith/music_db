@@ -22,10 +22,10 @@ $user_data = check_login($conn);
             <nav class="main-nav">
                 <ul>
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">Artist</a></li>
+                    <li><a href="artist_inser.html">Artist</a></li>
                     <li><a href="#">Music</a></li>
-                    <li><a href="#">Premium</a></li>
-                    <li><a href="#">Help</a></li>
+                    <li><a href="create_playlist.php">PlayList</a></li>
+                    <li><a href="view_playlist.php">view playlist</a></li>
                     <li><a href="#">Download</a></li>
                     <li><a href="#">Privacy</a></li>
                     <li><a href="#">Terms</a></li>
@@ -46,9 +46,9 @@ $user_data = check_login($conn);
     <div id="sidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
         <a href="#">Home</a>
-        <a href="#">Artist</a>
+        <a href="artist_inser.html">Artist</a>
         <a href="#">Music</a>
-        <a href="#">Premium</a>
+        <a href="create_playlist.php">PlayList</a>
         <a href="#">Help</a>
         <a href="#">Download</a>
         <a href="#">Privacy</a>
@@ -59,39 +59,30 @@ $user_data = check_login($conn);
     <section class="popular-artists">
     <h2>Popular Artists</h2>
     <div class="artist-scroll">
-        <div class="artist">
-            <img src="../homepage1/krithy.jpg" alt="Artist 1">
-            <p>Krithi Shetty</p>
-        </div>
-        <div class="artist">
-            <img src="../homepage1/arjit_singh.jpeg" alt="Artist 2">
-            <p>Arjit Singh</p>
-        </div>
-        <div class="artist">
-            <img src="../homepage1/jasleen.jpg" alt="Artist 3">
-            <p>Jasleen Royal </p>
-        </div>
-        <div class="artist">
-            <img src="../homepage1/ar_rahmanjpeg.jpeg" alt="Artist 3">
-            <p>A.R.Rahman</p>
-        </div>
-        <div class="artist">
-            <img src="../homepage1/krithi-shetty-2.avif" alt="Artist 3">
-            <p>Krithy Shetty</p>
-        </div>
-        <div class="artist">
-            <img src="../homepage1/shreya.jpeg" alt="Artist 3">
-            <p>Shreya Ghoshal</p>
-        </div>
-        <!-- Add more artists as needed -->
+        <?php
+        // Fetch popular artists from the database
+        $query = "SELECT * FROM artists"; // Make sure your table name and fields are correct
+        $result = mysqli_query($conn, $query);
+
+        // Loop through each artist and display their image and name
+        while ($row = mysqli_fetch_assoc($result)) {
+            $artist_id = $row['id'];
+            $artist_name = $row['name'];
+            $artist_image = $row['image_path']; // Path to the artist's image
+            echo "<div class='artist'>";
+            echo "<a href='artist_songs.php?id=$artist_id'><img src='$artist_image' alt='$artist_name'></a>";
+            echo "<p>$artist_name</p>";
+            echo "</div>";
+        }
+        ?>
     </div>
 </section>
 
 <section class="track-section">
     <h2>Tracks</h2>
     <div class="tracks">
-        <div class="track" onclick="location.href='#melody'">Melody</div>
-        <div class="track" onclick="location.href='#rays'">Rays</div>
+        <div class="track" onclick="location.href='upload_song.php'">Melody</div>
+        <div class="track" onclick="location.href='melody.php'">Rays</div>
         <div class="track" onclick="location.href='#hh'">HH</div>
         <div class="track" onclick="location.href='#classic'">Classic</div>
     </div>
