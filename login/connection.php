@@ -2,7 +2,7 @@
 
 $dbhost = "localhost";
 $dbuser = "root";
-$dbpass = "Adwaith@222";
+$dbpass = "";
 $dbname = "signup_db";
 
 // Attempt to connect to the database
