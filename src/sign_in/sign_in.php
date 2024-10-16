@@ -30,7 +30,7 @@ if($_SERVER['REQUEST_METHOD']=="POST")
                 if($user_data['password']=== $password)
                 {
                     $_SESSION['email']=$user_data['email'];
-                    header('Location:homepage1.php');
+                    header('Location:../homepage/homepage.php');
                     die;
                 }
             }
