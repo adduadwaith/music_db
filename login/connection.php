@@ -6,7 +6,7 @@ $dbpass = "";
 $dbname = "signup_db";
 
 // Attempt to connect to the database
-if (!$conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname,3306)) {
+if (!$conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname,3307)) {
     die("Failed to connect");
 }
 ?>
