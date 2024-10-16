@@ -29,15 +29,22 @@ if($_SERVER['REQUEST_METHOD']=="POST")
                 
                 if($user_data['password']=== $password)
                 {
-                    $_SESSION['email']=$user_data['email'];
+                    // Set session variables
+                    $_SESSION['loggedin'] = true;
+                    $_SESSION['username'] = $username;
+
+                    // Optionally set a cookie to store the session ID (PHP does this automatically with session_start)
+                    // but you can customize it:
+                    setcookie("PHPSESSID", session_id(), time() + (86400), "/"); // 86400 = 1 day
+
                     header('Location:../homepage/homepage.php');
                     die;
                 }
             }
 
         }
-        echo $email;
-        echo $password;
+        //echo $email;
+        //echo $password;
         echo "wrong email or password"; 
       
     }

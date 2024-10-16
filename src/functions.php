@@ -1,23 +1,16 @@
 <?php
 
-function check_login($con)
-{
-    if (isset($_SESSION['email'])) {
-        $id = $_SESSION['email'];
-        // Prepared statement to prevent SQL injection
-        $query = "SELECT * FROM users WHERE email = ? LIMIT 1";
-        $stmt = mysqli_prepare($con, $query);
-        mysqli_stmt_bind_param($stmt, 'i', $id);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
-
-        if ($result && mysqli_num_rows($result) > 0) {
-            $user_data = mysqli_fetch_assoc($result);
-            return $user_data;
-        }
+function check_login($con){
+    if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+        // If not logged in, redirect to login page
+        header("Location: ../sign_in/sign_in.html");
+        exit();
     }
-
-    // Redirect to login page if user is not logged in
-    header("Location: login.php");
-    exit;  // Ensure the script stops after redirection
+    // Check if session cookie is set
+    if (!isset($_COOKIE['PHPSESSID'])) {
+        // If session cookie is not set, redirect to login page
+        header("Location: ../sign_in/sign_in.html");
+        exit();
+    }
+    echo "Login success";
 }
