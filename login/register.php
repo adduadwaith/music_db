@@ -1,7 +1,6 @@
 <?php
 session_start();
 include("connection.php");
-include("functions.php");
 
 if($_SERVER['REQUEST_METHOD']=="POST")
 {
@@ -29,14 +28,14 @@ if($_SERVER['REQUEST_METHOD']=="POST")
             
             mysqli_query($conn,$query);
     
-            header('Location:index.php');
+            header('Location:login.php');
             die;
         }
         
         else
         {
                 echo "please enter some valid information"; 
-          }
+        }
 
     }
 

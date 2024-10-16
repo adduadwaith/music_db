@@ -3,14 +3,14 @@
 use LDAP\Result;
 
 session_start();
-include("connection.php");
+include("../connection.php");
 
 if($_SERVER['REQUEST_METHOD']=="POST")
 {
     //SOMETHING WAS POSTED
     $email=$_POST['email'];
     $password=$_POST['password'];
-    $password=md5($password);
+    //$password=md5($password);
 
 
     if(!empty($email)&& !empty($password))
@@ -36,6 +36,8 @@ if($_SERVER['REQUEST_METHOD']=="POST")
             }
 
         }
+        echo $email;
+        echo $password;
         echo "wrong email or password"; 
       
     }
