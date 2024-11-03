@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sangita Music App</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles_h.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
