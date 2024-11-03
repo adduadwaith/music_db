@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("connection.php");
+include("../connection.php");
 
 if($_SERVER['REQUEST_METHOD']=="POST")
 {
@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD']=="POST")
     $lastname=$_POST['lName'];
     $email=$_POST['email'];
     $password=$_POST['password'];
-    $password=md5($password);
+    //$password=md5($password);
 
     $checkEmail="select * from users where email='$email'";
     $result=$conn->query($checkEmail);
