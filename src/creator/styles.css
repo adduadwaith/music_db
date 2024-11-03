@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(45deg, #ff6ec4, #7873f5);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.dashboard {
+    max-width: 800px; /* Increased width for horizontal buttons */
+    margin: auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between; /* Spread buttons evenly */
+    gap: 10px; /* Space between buttons */
+}
+
+.action-button {
+    flex: 1; /* Make buttons take equal space */
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    background: linear-gradient(45deg, #007bff, #00c6ff); /* Base gradient color */
+}
+
+.action-button:hover {
+    transform: translateY(-3px);
+    background: linear-gradient(45deg, #00c6ff, #ff00ee); /* Hover gradient color */
+}
+
+.action-button:nth-child(2):hover {
+    background: linear-gradient(45deg, #ff8a00, #ffcb00); /* Color for "See Analytics" */
+}
+
+.action-button:nth-child(3):hover {
+    background: linear-gradient(45deg, #ff3d00, #ff9500); /* Color for "Monetization" */
+}
+
+.action-button:nth-child(4):hover {
+    background: linear-gradient(45deg, #3eff00, #8cff00); /* Color for "View Playlists" */
+}
+
+.action-button:nth-child(5):hover {
+    background: linear-gradient(45deg, #ff00d5, #d5006d); /* Color for "Profile Settings" */
+}

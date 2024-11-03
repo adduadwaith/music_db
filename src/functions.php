@@ -12,5 +12,5 @@ function check_login($con){
         header("Location: ../sign_in/sign_in.html");
         exit();
     }
-    echo "Login success";
+    //echo "Login success";
 }
