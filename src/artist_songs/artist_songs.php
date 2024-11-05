@@ -37,12 +37,86 @@ if (!$song_result) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Songs by <?php echo $artist_name; ?></title>
-    <link rel="stylesheet" href="artist_songs.css"> <!-- Link to your CSS file -->
+    <title>Songs by <?php echo htmlspecialchars($artist_name); ?></title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* General body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a2e;
+            color: #e0e0ff;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Container for the page */
+        .container {
+            max-width: 600px;
+            background-color: #222;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        h1 {
+            color: #9b59b6; /* Violet-blue accent */
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        /* Styling for the song list */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #333;
+            color: #e0e0ff;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.3s ease, background 0.3s;
+        }
+
+        li:hover {
+            background-color: #3a3a55;
+            transform: scale(1.03);
+        }
+
+        /* Styling for the play link */
+        .play-link {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+            border: 2px solid #3498db;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .play-link:hover {
+            background-color: #3498db;
+            color: #ffffff;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Songs by <?php echo $artist_name; ?> (Genre: <?php echo $artist_genre; ?>)</h1>
+        <h1>Songs by <?php echo htmlspecialchars($artist_name); ?> (Genre: <?php echo htmlspecialchars($artist_genre); ?>)</h1>
 
         <?php
         if (mysqli_num_rows($song_result) > 0) {
@@ -53,8 +127,8 @@ if (!$song_result) {
                 $song_id = $song_row['id'];
 
                 echo "<li>";
-                echo "$song_title";
-                echo "<a href='../now_playing/now_playing.php?url=$song_file&id=$song_id' target=\"_blank\">play</a>";
+                echo "<span>$song_title</span>";
+                echo "<a href='../now_playing/now_playing.php?url=$song_file&id=$song_id' class='play-link' target='_blank'>Play</a>";
                 echo "</li>";
             }
             echo "</ul>";

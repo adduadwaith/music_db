@@ -30,31 +30,83 @@ if (isset($_GET['playlist_id'])) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Songs in Playlist</title>
         <style>
+            /* General reset */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            
             body {
                 font-family: Arial, sans-serif;
-                margin: 20px;
+                background-color: #1a1a2e; /* Dark background */
+                color: #e0e0ff; /* Light text */
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
+
+            h1 {
+                color: #9b59b6; /* Violet-blue accent color */
+                margin-bottom: 20px;
+                font-size: 2em;
+                text-align: center;
+            }
+
+            .songs-container {
+                width: 100%;
+                max-width: 600px;
+                background: #222;
+                border-radius: 10px;
+                padding: 20px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            }
+
             .song {
-                margin: 10px 0;
-                padding: 10px;
-                border: 1px solid #ccc;
-                border-radius: 5px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background-color: #333;
+                border: 1px solid #444;
+                border-radius: 8px;
+                padding: 15px;
+                margin-bottom: 15px;
+                transition: background 0.3s;
             }
+
+            .song:hover {
+                background-color: #3a3a55;
+            }
+
             .song h2 {
+                color: #9b59b6;
                 margin: 0;
+                font-size: 1.2em;
+            }
+
+            .song a {
+                text-decoration: none;
+                color: #3498db;
+                font-weight: bold;
+                transition: color 0.3s;
+            }
+
+            .song a:hover {
+                color: #2980b9;
             }
         </style>
     </head>
     <body>
 
-    <h1>Songs in Playlist <?php echo $playlist_id; ?></h1>
+    <h1>Songs in Playlist</h1>
     <div class="songs-container">
         <?php
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<div class='song'>";
-                echo "{$row['title']}<a href=../now_playing/now_playing.php?url={$row['file_path']}&id={$row['id']} target=\"_blank\">hello</a>"; // Display song title
-                //echo "<a href='../now_playing/now_playing.php?url={$row['file_path']}&id={$row['id']} target=\"_blank\"></a>";; // Display artist name (if available)
+                echo "<h2>{$row['title']}</h2>";
+                echo "<a href='../now_playing/now_playing.php?url={$row['file_path']}&id={$row['id']}' target='_blank'>Play</a>";
                 echo "</div>";
             }
         } else {

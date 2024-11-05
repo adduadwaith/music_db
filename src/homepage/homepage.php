@@ -38,7 +38,8 @@ $username = $_COOKIE['user_name'];
             <div class="home-container2">
                 <a href=""><img src="./images/search.png" class="img2"></a>
                 <h2 class="se"><a href="./search.php" class="nod2"> SEARCH</a></h2>
-            </div>
+</div>
+
         </div>
         <div class="sidebar2">
             
@@ -49,14 +50,89 @@ $username = $_COOKIE['user_name'];
                 <a id="show-form-link" href="#"><img src="./images/plus.png" class="plus" alt="search icon"></a>
 
                 <!-- Playlist form -->
-    <div id="playlist-form">
+                <div id="playlist-form">
+    <div id="new-playlist-form">
         <h2>New Playlist</h2>
-        <form id="new-playlist-form" action='../create_playlist/create_playlist.php' method='get'>
+        <form action='../create_playlist/create_playlist.php' method='get'>
             <label for="playlist-name">Playlist Name:</label>
             <input type="text" id="playlist-name" name="playlist-name" required>
             <button type="submit">Submit</button>
         </form>
     </div>
+</div>
+
+<style>
+    /* Full-screen overlay */
+    #playlist-form {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center; /* Centers horizontally */
+        align-items: center; /* Centers vertically */
+        background-color: rgba(0, 0, 0, 0.8); /* Dim background */
+        z-index: 1000;
+    }
+
+    /* Centered modal container */
+    #new-playlist-form {
+        background-color: #222;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        width: 90%; /* Adjusted width */
+        max-width: 500px;
+        text-align: center;
+        color: #ffffff;
+        position: relative; /* Ensure positioning is relative for internal elements */
+    }
+
+    /* Heading */
+    #new-playlist-form h2 {
+        color: #d1b3ff;
+        margin-bottom: 20px;
+    }
+
+    /* Label */
+    #new-playlist-form label {
+        font-size: 1.2em;
+        color: #d1b3ff;
+    }
+
+    /* Input field */
+    #new-playlist-form input[type="text"] {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.1em;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #333;
+        color: #d1b3ff;
+    }
+
+    /* Submit button */
+    #new-playlist-form button {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #ffffff;
+        background-color: #4a4a7d;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    #new-playlist-form button:hover {
+        background-color: #373764;
+    }
+</style>
+
     <style>
         /* Initially hide the form */
         #playlist-form {
