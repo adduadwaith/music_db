@@ -49,7 +49,7 @@ header {
     font-size: 18px;
 }
 .login-btn {
-    padding: 10px 50px;
+    padding: 10px; 
     background-image:linear-gradient(90deg,#000000,#3533bb); ;
     border: none;
     color: white;
@@ -393,4 +393,10 @@ header {
       0 0 15px #ff00ff, 
       0 0 20px #ff00ff; /* Reduced glow compared to earlier */
       margin: 1cm;
+}
+
+img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover; /* This will crop the image to fit the container */
 }
