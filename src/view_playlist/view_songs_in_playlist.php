@@ -47,7 +47,7 @@ if (isset($_GET['playlist_id'])) {
     </head>
     <body>
 
-    <h1>Songs in Playlist ID: <?php echo $playlist_id; ?></h1>
+    <h1>Songs in Playlist <?php echo $playlist_id; ?></h1>
     <div class="songs-container">
         <?php
         if (mysqli_num_rows($result) > 0) {

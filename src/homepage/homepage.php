@@ -46,7 +46,32 @@ $username = $_COOKIE['user_name'];
                 <img src="./images/library.png" class="sei" alt="search icon">
                 <h2 class="lib">MY LIBRARY</h2>
                 
-                <a href="../create_playlist/create_playlist.php"><img src="./images/plus.png" class="plus" alt="search icon"></a>
+                <a id="show-form-link" href="#"><img src="./images/plus.png" class="plus" alt="search icon"></a>
+
+                <!-- Playlist form -->
+    <div id="playlist-form">
+        <h2>New Playlist</h2>
+        <form id="new-playlist-form" action='../create_playlist/create_playlist.php' method='get'>
+            <label for="playlist-name">Playlist Name:</label>
+            <input type="text" id="playlist-name" name="playlist-name" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <style>
+        /* Initially hide the form */
+        #playlist-form {
+            display: none; /* Hidden by default */
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        // JavaScript to toggle the form visibility
+        document.getElementById('show-form-link').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default anchor behavior
+            const form = document.getElementById('playlist-form');
+            form.style.display = form.style.display === 'none' ? 'block' : 'none'; // Toggle form visibility
+        });
+    </script>
                 
             </div>
             <div class="playlist_container">
@@ -115,10 +140,10 @@ if (mysqli_num_rows($result) > 0) {
         <div class="track"> 
             <h2 class="t">Tracks</h2>
             <div class="but">
-            <div class="bu1"><div class="mel">Melody</div></div>
-            <div class="bu2"><div class="rap">Rap</div></div>
-            <div class="bu3"><div class="hh">H-H</div></div>
-            <div class="bu4"><div class="cl">Classic</div></div>
+            <div class="bu1"><a href='../view_playlist/view_songs_in_playlist.php?playlist_id=0'><div class="mel">Melody</div></a></div>
+            <div class="bu2"><a href='../view_playlist/view_songs_in_playlist.php?playlist_id=1'><div class="rap">Rap</div></a></div>
+            <div class="bu3"><a href='../view_playlist/view_songs_in_playlist.php?playlist_id=2'><div class="hh">H-H</div></a></div>
+            <div class="bu4"><a href='../view_playlist/view_songs_in_playlist.php?playlist_id=3'><div class="cl">Classic</div></div>
             </div>
         </div>   
     </div>
