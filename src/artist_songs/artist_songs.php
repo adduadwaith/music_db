@@ -53,10 +53,7 @@ if (!$song_result) {
 
                 echo "<li>";
                 echo "$song_title";
-                echo "<audio controls>";
-                echo "<source src='$song_file' type='audio/mpeg'>";
-                echo "Your browser does not support the audio element.";
-                echo "</audio>";
+                echo "<a href='../now_playing/now_playing.php?url=$song_file' target=\"_blank\">play</a>";
                 echo "</li>";
             }
             echo "</ul>";
