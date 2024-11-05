@@ -396,9 +396,9 @@ header {
 }
 
 img {
-    width: 200px;
-    height: 150px;
-    object-fit: cover; /* This will crop the image to fit the container */
+    /*width: 200px;
+    /*height: 150px;
+    /*object-fit: cover; /* This will crop the image to fit the container */
 }
 
 .playlist_container {

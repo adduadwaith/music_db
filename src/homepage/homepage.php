@@ -36,8 +36,100 @@ $username = $_COOKIE['user_name'];
                 <h2 class="ho"><a href="./index.html" class="nod">HOME</a></h2>
             </div>
             <div class="home-container2">
-                <a href=""><img src="./images/search.png" class="img2"></a>
-                <h2 class="se"><a href="./search.php" class="nod2"> SEARCH</a></h2>
+                <a href="", id="show-search-link"><img src="./images/search.png" class="img2"></a>
+                <h2 class="se"><a href="" class="nod2"> SEARCH</a></h2>
+                
+<div id="search-form" style="display: none;"> <!-- Initially hidden -->
+    <div id="search-song-form">
+        <h2>Search Songs</h2>
+        <form action='../search/search.php' method='get'>
+            <label for="search-term">Song Title:</label>
+            <input type="text" id="search-term" name="search-term" required>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+</div>
+
+<style>
+    /* Full-screen overlay for the search form */
+    #search-form {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center; /* Centers horizontally */
+        align-items: center; /* Centers vertically */
+        background-color: rgba(0, 0, 0, 0.8); /* Dim background */
+        z-index: 1000;
+    }
+
+    /* Centered modal container for the search form */
+    #search-song-form {
+        background-color: #222;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        width: 90%; /* Adjusted width */
+        max-width: 500px;
+        text-align: center;
+        color: #ffffff;
+    }
+
+    /* Heading */
+    #search-song-form h2 {
+        color: #d1b3ff;
+        margin-bottom: 20px;
+    }
+
+    /* Label */
+    #search-song-form label {
+        font-size: 1.2em;
+        color: #d1b3ff;
+    }
+
+    /* Input field */
+    #search-song-form input[type="text"] {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.1em;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #333;
+        color: #d1b3ff;
+    }
+
+    /* Submit button */
+    #search-song-form button {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #ffffff;
+        background-color: #4a4a7d;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    #search-song-form button:hover {
+        background-color: #373764;
+    }
+</style>
+
+<script>
+    // JavaScript to toggle the form visibility
+    document.getElementById('show-search-link').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default anchor behavior
+        const form = document.getElementById('search-form');
+        form.style.display = form.style.display === 'none' ? 'flex' : 'none'; // Toggle form visibility
+    });
+</script>
+
 </div>
 
         </div>
@@ -192,7 +284,7 @@ if (mysqli_num_rows($result) > 0) {
             
         </div>
         <div class="art">
-            <h2 class="a">Artist</h2>
+            <h2 class="a">Popular Artists</h2>
             <div class="g">
             <?php
                 // Fetch popular artists from the database

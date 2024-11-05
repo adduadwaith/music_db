@@ -28,7 +28,7 @@ if($_SERVER['REQUEST_METHOD']=="POST")
             
             mysqli_query($conn,$query);
     
-            header('Location:login.php');
+            header('Location:../sign_in/sign_in.html');
             die;
         }
         

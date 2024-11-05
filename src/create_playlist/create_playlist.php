@@ -15,6 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $playlist_id = mysqli_insert_id($conn); // Get the ID of the newly created playlist
 
         echo "Playlist created successfully!";
+        header('Location:../homepage/homepage.php');
     } else {
         echo "Error creating playlist: " . mysqli_error($conn);
     }
