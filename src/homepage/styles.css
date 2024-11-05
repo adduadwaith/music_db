@@ -400,3 +400,7 @@ img {
     height: 150px;
     object-fit: cover; /* This will crop the image to fit the container */
 }
+
+.playlist_container {
+    padding-left: 50px;; /* Adjust the value as needed */
+}

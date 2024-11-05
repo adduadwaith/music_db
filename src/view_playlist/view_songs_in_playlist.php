@@ -53,7 +53,7 @@ if (isset($_GET['playlist_id'])) {
         if (mysqli_num_rows($result) > 0) {
             while ($row = mysqli_fetch_assoc($result)) {
                 echo "<div class='song'>";
-                echo "<h2>{$row['title']}</h2>"; // Display song title
+                echo "{$row['title']}<a href=../now_playing/now_playing.php?url={$row['file_path']}&id={$row['id']} target=\"_blank\">hello</a>"; // Display song title
                 //echo "<a href='../now_playing/now_playing.php?url={$row['file_path']}&id={$row['id']} target=\"_blank\"></a>";; // Display artist name (if available)
                 echo "</div>";
             }

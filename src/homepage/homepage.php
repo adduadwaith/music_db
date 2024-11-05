@@ -23,7 +23,9 @@ $username = $_COOKIE['user_name'];
         <header>
             <h1 class="logo">SANGITA</h1>
             <div class="auth-buttons">
+                
                 <a class="signup-btn"><?php if($username){echo $username;}else{echo 'Sign up';}?></a>
+            
                 <a href="../logout/logout.php"><button class="login-btn">Log out</button></a>
 
             </div>
@@ -44,9 +46,48 @@ $username = $_COOKIE['user_name'];
                 <img src="./images/library.png" class="sei" alt="search icon">
                 <h2 class="lib">MY LIBRARY</h2>
                 
-                <a href="./create_playlist.php"><img src="./images/plus.png" class="plus" alt="search icon"></a>
+                <a href="../create_playlist/create_playlist.php"><img src="./images/plus.png" class="plus" alt="search icon"></a>
                 
             </div>
+            <div class="playlist_container">
+            <?php
+
+// Check if the user is logged in
+$user_data = check_login($conn);
+
+
+
+$user_id = intval($_COOKIE['user_id']); // Ensure user_id is treated as an integer
+
+// Fetch playlists for the given user_id
+$query = "SELECT * FROM playlists WHERE user_id = '$user_id'";
+$result = mysqli_query($conn, $query);
+
+if (!$result) {
+    echo "Error fetching playlists: " . mysqli_error($conn);
+    exit();
+}
+
+// Display the playlists
+?>
+<?php
+if (mysqli_num_rows($result) > 0) {
+    // Loop through each playlist and display it
+    echo "<ul>";
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo "<li>";
+        //echo "<div class='playlist'>";
+        echo "{$row['name']}"; // Display playlist name
+        echo "<a href='../view_playlist/view_songs_in_playlist.php?playlist_id={$row['id']}'>View playlist</a>"; // Display playlist ID (optional)
+        //echo "</div>";
+        echo "</li>";
+    }
+    echo "</ul>";
+} else {
+    echo "<p>You have no playlists yet. Create one!</p>";
+}
+?>
+</div>
             
         </div>
         <div class="art">
