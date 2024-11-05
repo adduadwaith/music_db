@@ -4,6 +4,7 @@ session_start();
 // Check if the 'url' parameter is provided in the GET request
 if (isset($_GET['url'])) {
     $url = htmlspecialchars($_GET['url']); // Sanitize the input to prevent XSS attacks
+    $song_id = $_GET['id'];
 } else {
     $url = ''; // Default to an empty string if no URL is provided
 }
@@ -34,7 +35,6 @@ if (isset($_GET['url'])) {
 <!-- Display Playlist -->
 <h3>Your Playlists</h3>
 <div class="container">
-        <h1>Your Playlists</h1>
         <?php
         include("../connection.php");
         include("../functions.php");
@@ -51,13 +51,17 @@ if (isset($_GET['url'])) {
             echo "Error fetching playlists: " . mysqli_error($conn);
             exit();
         }
+        
         if (mysqli_num_rows($result) > 0) {
             // Loop through each playlist
             while ($row = mysqli_fetch_assoc($result)) {
-                echo "<div class='playlist'>";
-                echo "<h2>{$row['name']}</h2>"; // Display playlist name
+                echo "<div>";
+                // Create a button for each playlist as a link
+                echo "<a href='add_to_playlist.php?song_id=$song_id&playlist_id={$row['id']}'>Add to {$row['name']}</a>";
+                echo "</div>";
             }
-        } else {
+        }
+         else {
             echo "<p>You have no playlists yet. Create one!</p>";
         }
         ?>

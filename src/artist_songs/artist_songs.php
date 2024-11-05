@@ -50,10 +50,11 @@ if (!$song_result) {
             while ($song_row = mysqli_fetch_assoc($song_result)) {
                 $song_title = $song_row['title'];
                 $song_file = $song_row['file_path']; // Path to the song file
+                $song_id = $song_row['id'];
 
                 echo "<li>";
                 echo "$song_title";
-                echo "<a href='../now_playing/now_playing.php?url=$song_file' target=\"_blank\">play</a>";
+                echo "<a href='../now_playing/now_playing.php?url=$song_file&id=$song_id' target=\"_blank\">play</a>";
                 echo "</li>";
             }
             echo "</ul>";

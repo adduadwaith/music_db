@@ -38,6 +38,7 @@ if($_SERVER['REQUEST_METHOD']=="POST")
                     setcookie("PHPSESSID", session_id(), time() + (86400), "/"); // 86400 = 1 day
                     // Set a cookie to store user ID for 1 day
                     setcookie("user_id", $user_data['id'], time() + (86400), "/"); // 86400 = 1 day
+                    setcookie("user_name", $user_data['firstname'], time() + (86400), "/"); // 86400 = 1 day
 
                     header('Location:../homepage/homepage.php');
                     die;

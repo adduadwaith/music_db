@@ -5,6 +5,8 @@ include("../functions.php");
 
 check_login($conn);
 
+$username = $_COOKIE['user_name'];
+
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +23,7 @@ check_login($conn);
         <header>
             <h1 class="logo">SANGITA</h1>
             <div class="auth-buttons">
-                <a class="signup-btn">Sign up</a>
+                <a class="signup-btn"><?php if($username){echo $username;}else{echo 'Sign up';}?></a>
                 <a href="../logout/logout.php"><button class="login-btn">Log out</button></a>
 
             </div>
