@@ -266,20 +266,19 @@ if (!$result) {
 <?php
 if (mysqli_num_rows($result) > 0) {
     // Loop through each playlist and display it
-    echo "<ul>";
+    echo "<ul style='list-style-type: none; padding: 0;'>";
     while ($row = mysqli_fetch_assoc($result)) {
-        echo "<li>";
-        //echo "<div class='playlist'>";
-        echo "{$row['name']}"; // Display playlist name
-        echo "<a href='../view_playlist/view_songs_in_playlist.php?playlist_id={$row['id']}'>View playlist</a>"; // Display playlist ID (optional)
-        //echo "</div>";
+        echo "<li style='margin: 10px 0; padding: 10px; color: #3b533; border-radius: 5px;'>";
+        echo "<span style='font-size: 1.2em; font-weight: bold;'>{$row['name']}</span>"; // Display playlist name
+        echo "<a href='../view_playlist/view_songs_in_playlist.php?playlist_id={$row['id']}' style='margin-left: 15px; color: #fc03cf; text-decoration: none;'>View playlist</a>"; // Display playlist ID (optional)
         echo "</li>";
     }
     echo "</ul>";
 } else {
-    echo "<p>You have no playlists yet. Create one!</p>";
+    //echo "<p style='color: #fff; font-style: italic;'>You have no playlists yet. Create one!</p>";
 }
 ?>
+
 </div>
             
         </div>
@@ -298,7 +297,7 @@ if (mysqli_num_rows($result) > 0) {
                     $artist_image = $row['image_path']; // Path to the artist's image
                     echo "<div>";
                     echo "<a href='../artist_songs/artist_songs.php?id=$artist_id'><img src='$artist_image' alt='$artist_name'></a>";
-                    echo "<div>$artist_name</div>";
+                    echo "<div class='art_name'>$artist_name</div>";
                     echo "</div>";
                 }
             ?>
@@ -308,10 +307,10 @@ if (mysqli_num_rows($result) > 0) {
         <div class="track"> 
             <h2 class="t">Tracks</h2>
             <div class="but">
-            <div class="bu1"><a href='../view_playlist/view_songs_in_playlist.php?playlist_id=0'><div class="mel">Melody</div></a></div>
+            <div class="bu1"><a href='../view_playlist/view_songs_in_playlist.php?playlist_id=27'><div class="mel">Melody</div></a></div>
             <div class="bu2"><a href='../view_playlist/view_songs_in_playlist.php?playlist_id=1'><div class="rap">Rap</div></a></div>
-            <div class="bu3"><a href='../view_playlist/view_songs_in_playlist.php?playlist_id=2'><div class="hh">H-H</div></a></div>
-            <div class="bu4"><a href='../view_playlist/view_songs_in_playlist.php?playlist_id=3'><div class="cl">Classic</div></div>
+            <div class="bu3"><a href='../view_playlist/view_songs_in_playlist.php?playlist_id=33'><div class="hh">H-H</div></a></div>
+            <div class="bu4"><a href='../view_playlist/view_songs_in_playlist.php?playlist_id=2'><div class="cl">Classic</div></div>
             </div>
         </div>   
     </div>

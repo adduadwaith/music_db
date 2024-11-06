@@ -116,7 +116,7 @@ if (!$song_result) {
 </head>
 <body>
     <div class="container">
-        <h1>Songs by <?php echo htmlspecialchars($artist_name); ?> (Genre: <?php echo htmlspecialchars($artist_genre); ?>)</h1>
+        <h1>Songs by <?php echo htmlspecialchars($artist_name); ?></h1>
 
         <?php
         if (mysqli_num_rows($song_result) > 0) {
