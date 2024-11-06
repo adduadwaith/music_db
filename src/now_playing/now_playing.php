@@ -17,7 +17,7 @@ if (isset($_GET['url'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Now Playing</title>
     <style>
-        /* Gradient Background Animation */
+        /* RGB Lighting Background Animation */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -26,13 +26,13 @@ if (isset($_GET['url'])) {
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: linear-gradient(45deg, #1b1b2f, #2d2d44, #3a3a5f, #1b1b2f);
-            background-size: 400% 400%;
-            animation: gradientAnimation 10s ease infinite;
+            background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ff0000);
+            background-size: 300% 300%;
+            animation: rgbAnimation 5s linear infinite;
             color: #e0e0e0;
         }
 
-        @keyframes gradientAnimation {
+        @keyframes rgbAnimation {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
