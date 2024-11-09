@@ -269,8 +269,8 @@ if (mysqli_num_rows($result) > 0) {
     echo "<ul style='list-style-type: none; padding: 0;'>";
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<li style='margin: 10px 0; padding: 10px; color: #3b533; border-radius: 5px;'>";
-        echo "<span style='font-size: 1.2em; font-weight: bold;'>{$row['name']}</span>"; // Display playlist name
-        echo "<a href='../view_playlist/view_songs_in_playlist.php?playlist_id={$row['id']}' style='margin-left: 15px; color: #fc03cf; text-decoration: none;'>View playlist</a>"; // Display playlist ID (optional)
+        echo "<a href='../view_playlist/view_songs_in_playlist.php?playlist_id={$row['id']}' style='margin-left: 15px; color: #fc03cf; text-decoration: none;'><span style='font-size: 1.2em; font-weight: bold;'>{$row['name']}</span></a>"; // Display playlist name
+        //echo "<a href='../view_playlist/view_songs_in_playlist.php?playlist_id={$row['id']}' style='margin-left: 15px; color: #fc03cf; text-decoration: none;'>View playlist</a>"; // Display playlist ID (optional)
         echo "</li>";
     }
     echo "</ul>";
